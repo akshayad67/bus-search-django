@@ -1,0 +1,12 @@
+<html>
+<head>
+<title>Bus Route</title>
+</head>
+<body>
+<form action="/r" method="POST">{% csrf_token %}
+Source:  <input type="text" name="src" />
+Destination  <input type="text" name="dest" />
+<input type="submit">
+</form>
+</body>
+</html>
