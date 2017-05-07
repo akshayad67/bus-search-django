@@ -23,12 +23,9 @@ def result(request,src,des):
 		smalldict['busname']=(i.busname).encode('ascii', 'ignore')
 		smalldict['Busid']=i.Busid
 		resul.append(smalldict)
-
-	#li=str(resul[0]).encode("ascii")	
+	
 	t='chinnuchinnu1959@gmail.com'
 	r='akshayad67@gmail.com'	
-	#we=str(resul)
-	#kk=we.encode('ascii', 'ignore')
 	send_mail('Test- Bus search Result',str(resul),t, [r],fail_silently=False)
 
 
