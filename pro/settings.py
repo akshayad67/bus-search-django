@@ -27,8 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = '**********@gmail.com' #add your mail id
-EMAIL_HOST_PASSWORD = '*******' #add your password
+EMAIL_HOST_USER = '******@gmail.com' #add your mail id
+EMAIL_HOST_PASSWORD = '*****' #add your password
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -41,8 +41,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ksrtc'
+    'rest_framework',
+    'ksrtc',
+    
 )
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

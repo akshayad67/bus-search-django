@@ -1,8 +1,13 @@
 from django.shortcuts import render
-from django.http import JsonResponse
 from .models import *
 from django.core.mail import send_mail
+from django.contrib.auth.models import *
+from ksrtc.serializers import *
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
 # Create your views here.
+@api_view()
 
 def result(request,src,des):
 	stp=[ ]
@@ -17,16 +22,12 @@ def result(request,src,des):
 		for j in x:
 			if(i==j):
 				stp.append(i)
+
+	serializer= bustabSerializer(stp,many=True)
 	
-	for i in stp:
-		smalldict=dict()
-		smalldict['busname']=(i.busname).encode('ascii', 'ignore')
-		smalldict['Busid']=i.Busid
-		resul.append(smalldict)
-	
-	t='chinnuchinnu1959@gmail.com'
-	r='akshayad67@gmail.com'	
-	send_mail('Test- Bus search Result',str(resul),t, [r],fail_silently=False)
+	t='akshayad67@gmail.com'
+	r='akshayad.mec@gmail.com'	
+	send_mail('Test- Bus search Result',str(stp),t, [r],fail_silently=False)
 
 
-	return JsonResponse(resul,safe=False)
+	return Response(serializer.data)
